@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>麻將計算台數</title>
+  <script src="Calculator.js"></script>
+  <link rel="stylesheet" href="Calculator.css">
+</head>
+<body>
+  <div class="container">
+    <h2>麻將計算台數</h2>
+    <label for="winner">贏錢的人：</label>
+    <select id="winner" onchange="toggleContent()">
+      <option value="selectPlayer">請選擇玩家</option>
+      <option value="player1">東林</option>
+      <option value="player2">奇岳</option>
+      <option value="player3">政亮</option>
+      <option value="player4">梅子</option>
+    </select> 
+    <label for="selfDrawnWin">有無自摸:</label>
+    <input type="radio" name="selfDrawnWin" value="yes" onchange="toggleContent()">自摸
+    <input type="radio" name="selfDrawnWin" value="no" onchange="toggleContent()">無 
+    <div id="whoBanker" class="hidden">
+    <label for="banker">莊家</label>
+    <select id="banker" onchange="updateBanker(); toggleContent()">
+      <option value="selectPlayer">請選擇玩家</option>
+      <option value="player1">東林</option>
+      <option value="player2">奇岳</option>
+      <option value="player3">政亮</option>
+      <option value="player4">梅子</option> 
+    </select></div>
+    
+    <div id="bankerArea" class="hidden">
+    <label for="continueBanker">連莊次數:</label>
+    <input type="number" id="continueBanker" min="0" value="0"></div><hr>
+ 
+    <div id="paymentDropdown" class="hidden">
+    <label for="loser">輸錢的人：</label>
+    <select id="loser">
+      <option value="selectPlayer">請選擇玩家</option>
+      <option value="player1">東林</option>
+      <option value="player2">奇岳</option>
+      <option value="player3">政亮</option>
+      <option value="player4">梅子</option>
+    </select> </div>
+
+    <label for="wonUnit">胡了幾台：</label>
+    <input type="number" id="wonUnit" min="0" value="0">
+    <button onclick="calculateMoney()">計算</button>
+    <h3>每位玩家的金額：</h3>
+    <div id="playerAmounts">
+      <p id="player1">東林：0元</p>
+      <p id="player2">奇岳：0元</p>
+      <p id="player3">政亮：0元</p>
+      <p id="player4">梅子：0元</p>
+    </div><hr>
+    <button id="clearButton" onclick="location.reload()">清除</button>
+  </div>
+  </body>
+</html>
